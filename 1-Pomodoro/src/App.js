@@ -4,7 +4,7 @@ import './App.css';
 export default function App() {
 
   const [title, setTitle] = useState('LET THE COUNTDOWN BEGIN!');
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft] = useState(25 * 60);
   // padStart: js function that adds a number to the beginning of another number
   const minutes = Math.floor(timeLeft / 60).toString().padStart(2, 0); 
   const seconds = (timeLeft - minutes * 60).toString().padStart(2, 0);
