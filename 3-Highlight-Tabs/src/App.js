@@ -1,0 +1,45 @@
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+
+const [highlightStyle, setHighlightStyle] = useState({left: 0, opacity: 0});
+
+function moveHighlight(e) {
+  setHighlightStyle({
+    left: e.nativeEvent.layerX - 150,
+  });
+}
+
+function hideHiglight(e) {
+  setHighlightStyle({
+    opacity: 0,
+    left: e.nativeEvent.layerX - 150,
+  });
+}
+
+  return (
+    <div className="app">
+      <div className="browser">
+        <div className="tabs">
+          <div className="tab" onMouseOut={hideHiglight} onMouseMove={moveHighlight}>
+            <div className="highlight" style={highlightStyle} />
+            <a>Home</a>
+          </div>
+          <div className="tab">
+          <div className="highlight" style={highlightStyle} />
+            <a>About</a>
+          </div>
+          <div className="tab">
+          <div className="highlight" style={highlightStyle} />
+            <a>Features</a>
+          </div>
+        </div>
+
+        <div className="viewport">Pages Go Here</div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
