@@ -1,45 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {
+  BrowserRouter as Router } from "react-router-dom";
+//import Tab from './components/Tab';
+import Header from './components/Header';
+import Routes from './Routes';
 import './App.css';
 
 function App() {
-
-const [highlightStyle, setHighlightStyle] = useState({left: 0, opacity: 0});
-
-function moveHighlight(e) {
-  setHighlightStyle({
-    left: e.nativeEvent.layerX - 150,
-  });
-}
-
-function hideHiglight(e) {
-  setHighlightStyle({
-    opacity: 0,
-    left: e.nativeEvent.layerX - 150,
-  });
-}
-
   return (
+   <Router>
     <div className="app">
-      <div className="browser">
-        <div className="tabs">
-          <div className="tab" onMouseOut={hideHiglight} onMouseMove={moveHighlight}>
-            <div className="highlight" style={highlightStyle} />
-            <a>Home</a>
-          </div>
-          <div className="tab">
-          <div className="highlight" style={highlightStyle} />
-            <a>About</a>
-          </div>
-          <div className="tab">
-          <div className="highlight" style={highlightStyle} />
-            <a>Features</a>
+        <div className="browser">
+          <Header />
+
+          <div className="viewport">
+            <Routes />
           </div>
         </div>
-
-        <div className="viewport">Pages Go Here</div>
-      </div>
     </div>
+
+   </Router>
   );
 }
-
 export default App;
