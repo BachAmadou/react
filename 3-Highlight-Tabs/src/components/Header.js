@@ -12,7 +12,7 @@ export default function Header() {
             </Tab>
             <Tab>
                 <NavLink 
-                    to ="/about" activeClassName="is-active">About
+                    to="/about" activeClassName="is-active">About
                 </NavLink>
             </Tab>
             <Tab>
